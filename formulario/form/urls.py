@@ -10,4 +10,7 @@ urlpatterns = [
 
     path('libraries/', views.library_list, name='library_list'),
     path('libraries/new/', views.library_create, name='library_create'),
+
+    path('sections/', views.section_list, name='section_list'),
+    path('sections/new/', views.section_create, name='section_create'),
 ]

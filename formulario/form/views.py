@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import AuthorForm, BookForm, LibraryForm
-from .models import Author, Book, Library
+from .forms import AuthorForm, BookForm, LibraryForm, SectionForm
+from .models import Author, Book, Library, Section
 
 def author_create(request):
     if request.method == 'POST':
@@ -43,4 +43,22 @@ def library_create(request):
 
 def library_list(request):
     library = Library.objects.all()
-    return render(request, 'form/library_list.html', {'library': library})
+    return render(request, 'form/library_list.html', {'libraries': library})
+
+
+
+
+def section_create(request):
+    if request.method == 'POST':
+        form = SectionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('section_list')
+    else:
+        form = SectionForm()
+    return render(request, 'form/section_form.html', {'form': form})
+
+
+def section_list(request):
+    section = Section.objects.all()
+    return render(request, 'form/section_list.html', {'sections': section})

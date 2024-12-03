@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Section List</title>
+</head>
+<body>
+    <h1>Section</h1>
+    <ul>
+        {% for section in sections %}
+        <li>{{ section.category }} - {{ section.book.title }} - {{ section.book.author.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'section_create' %}">Add new Section</a>
+</body>
+</html>

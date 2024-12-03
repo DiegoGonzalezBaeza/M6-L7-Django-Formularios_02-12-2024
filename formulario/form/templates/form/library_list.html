@@ -6,10 +6,10 @@
 <body>
     <h1>Libraries</h1>
     <ul>
-        {% for library in Libraries %}
-        <li>{{ library.name }} by {{ library..name }}</li>
+        {% for library in libraries %}
+        <li>{{ library.name }} - Año: {{ library.anio }} - {{ library.book.title }} - {{ library.book.author.name }}</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'book_create' %}">Add new Library</a>
+    <a href="{% url 'library_create' %}">Add new Library</a>
 </body>
 </html>
